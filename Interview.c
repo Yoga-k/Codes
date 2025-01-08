@@ -22,6 +22,8 @@ void checkBit(int num, int pos);
 void isPoweroftwo(int num);
 void notbit(int num);
 void reversebits(uint32_t n);
+int findSecondLargest();
+
 
 char str[] = "olleh woh";
 int main()
@@ -38,6 +40,7 @@ int main()
     isPoweroftwo(7);
     notbit(15);
     reversebits(15);
+    findSecondLargest();
     return 0;
 }
 
@@ -136,4 +139,34 @@ void reversebits(uint32_t n)
     n = ((n & (0xCCCCCCCC)) >> 2) | ((n & (0x33333333)) << 2);
     n = ((n & (0xAAAAAAAA)) >> 1) | ((n & (0x55555555)) << 1);
     printf("Reverse bits are: %d\n", n);
+}
+
+
+int findSecondLargest()
+{
+    int arr[6] = {12, 35, 1, 10, 34, 1};
+    int second_largest = 0;
+    int largest = 0;
+    int min = -1;
+    largest = arr[0];
+   for( int i = 0; i < 6; i++)
+    {
+	
+	    if(arr[i] > largest)
+    	{
+    		largest = arr[i];
+    	}
+    	else
+    	{
+    		if(arr[i] > min)
+    		{
+    			second_largest = arr[i];
+    			min = second_largest;
+    		}
+    	}
+    
+    		
+    }
+    printf("second largest: %d\n", min);
+    return min;
 }
